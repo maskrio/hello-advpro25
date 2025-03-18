@@ -45,7 +45,7 @@ fn handle_connection(mut stream: TcpStream) {
 
 After the code reads HTTP request headers, the code sends a response to the client containing the response header `status_line` then `Content-Length`, after that the `contents` which reads the `hello.html` file. 
 
-![image](./imagecommit2.png)
+![image](./images/imagecommit2.png)
 
 ### Commit 3 Notes 
 
@@ -66,4 +66,4 @@ let (status_line, contents) = get_page_by_request(&http_request[0]);
 
 Now, I only have to modify `status_line` and `contents` according to the function's return.
 
-
+![image](./images/imagecommit3.png)
