@@ -67,3 +67,21 @@ let (status_line, contents) = get_page_by_request(&http_request[0]);
 Now, I only have to modify `status_line` and `contents` according to the function's return.
 
 ![image](./images/imagecommit3.png)
+
+
+### Commit  4 notes
+
+```rust 
+fn get_page_by_request(request_line: &String) -> (&str, &str) {
+    return match &request_line[..] {
+        "GET / HTTP/1.1" => ("HTTP/1.1 200 OK", "pages/hello.html"),
+        "GET /sleep HTTP/1.1" => {
+            thread::sleep(Duration::from_secs(10));
+            ("HTTP/1.1 200 OK", "pages/hello.html")
+        }
+        _ => ("HTTP/1.1 404 NOT FOUND", "pages/404.html"),
+    };
+}
+``` 
+
+`/sleep` endpoint is added, but since the program are single threaded, we have to wait for `/sleep` call to end before others can call a different endpoint.
