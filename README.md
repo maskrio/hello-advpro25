@@ -89,3 +89,8 @@ fn get_page_by_request(request_line: &String) -> (&str, &str) {
 ### Commit 5 notes 
 
 I have to implement multi-threading by using ThreadPool to handle each requests conccurently. Threadpool manages a collection of worker threads to execute tasks efficiently. A fixed set of worker threads created when the pool initializes. The main thread can continue accepting connections while worker threads process the actual requests. 
+
+### Bonus Commit notes
+
+`new` functions should never fail or should panic on failure, it could lead to unrecoverable error.
+Functions that might fail in expected ways should return a Result. Rather than having to handle panics, my code can manage validation failures and provide meaningful error massages.
