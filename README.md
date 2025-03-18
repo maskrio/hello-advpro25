@@ -85,3 +85,7 @@ fn get_page_by_request(request_line: &String) -> (&str, &str) {
 ``` 
 
 `/sleep` endpoint is added, but since the program are single threaded, we have to wait for `/sleep` call to end before others can call a different endpoint.
+
+### Commit 5 notes 
+
+I have to implement multi-threading by using ThreadPool to handle each requests conccurently. Threadpool manages a collection of worker threads to execute tasks efficiently. A fixed set of worker threads created when the pool initializes. The main thread can continue accepting connections while worker threads process the actual requests. 
